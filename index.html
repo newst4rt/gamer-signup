@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="index.css" type="text/css">           
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Gamer sign-up form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400..900&display=swap');
+  </style>
+</head>
+<body>
+  <div class="root">
+    <div class="column-one">
+      <div class="container logo">
+        <img src="/assets/images/logo.svg"/>
+        <div class="column-3 req-counter sub">
+            <p>0/5 READY</p>
+        </div>
+      </div>
+      <div class="container title">
+        <a class="neongreen">//</a> <a>Join the nexus</a>
+      </div>
+      <div class="container description">
+        <p>Initialize your Neocore Identify</p>
+      </div>
+      <div class="underline"></div>
+      <div class="container content">
+        <div class="row operator">
+          <div class="column-1">
+            <p>Operator ID</p>
+          </div>
+          <div class="column-2">
+
+          </div>
+          <div class="column-3 req-counter main">
+            <p>0/5 READY</p>
+          </div>
+        </div>
+        <div class="subcontainer title">
+          <p>UNASSIGNED</p>
+        </div>
+        <div class="row callsign">
+          <div class="grid-column-1">
+            <p>CALLSIGN</p>
+          </div>
+          <div class="grid-column-2">
+            <div class="underline progress"></div>
+          </div>
+          <div class="grid-column-3">
+            <p class="req username">PENDING</p>
+            <p class="req error username">TOO SHORT</p>
+            <p class="req valid username">OK</p>
+            <p class="req locked username">LOCKED</p>
+          </div>
+        </div>
+        <div class="row email">
+          <div class="grid-column-1">
+            <p>EMAIL</p>
+          </div>
+          <div class="grid-column-2">
+            <div class="underline progress"></div>
+          </div>
+          <div class="grid-column-3">
+            <p class="req mail">PENDING</p>
+            <p class="req error mail">MALFORMED</p>
+            <p class="req valid mail">OK</p>
+            <p class="req locked mail">LOCKED</p>
+          </div>
+        </div>
+        <div class="row password">
+          <div class="grid-column-1">
+            <p>PASSWORD</p>
+          </div>
+          <div class="grid-column-2">
+            <div class="underline progress"></div>
+          </div>
+          <div class="grid-column-3">
+            <p class="req password">PENDING</p>
+            <p class="req error password">TOO SHORT</p>
+            <p class="req valid password">OK</p>
+            <p class="req locked password">LOCKED</p>
+
+          </div>
+        </div>
+        <div class="row confirm">
+          <div class="grid-column-1">
+            <p>CONFIRM</p>
+          </div>
+          <div class="grid-column-2">
+            <div class="underline progress"></div>
+          </div>
+          <div class="grid-column-3">
+            <p class="req confirm">PENDING</p>
+            <p class="req error confirm">MISMATCH</p>
+            <p class="req valid confirm">OK</p>
+            <p class="req locked confirm">LOCKED</p>
+
+          </div>
+        </div>
+        <div class="row terms">
+          <div class="grid-column-1">
+            <p>TERMS</p>
+          </div>
+          <div class="grid-column-2">
+            <div class="underline progress"></div>
+          </div>
+          <div class="grid-column-3">
+            <p class="req terms">REQUIRED</p>
+            <p class="req valid terms">OK</p>
+            <p class="req locked terms">LOCKED</p>
+
+          </div>
+        </div>
+      </div>
+    
+
+      </div>
+      <div class="column-two">
+        <div class="form-container">
+          <form onsubmit="handleLogin(event);" class="reg-formula">
+            <div class="form-title">
+              <div class="title-column1">
+                <a>NEW OPERATOR</a>
+              </div>
+              <div class="title-column2">
+              </div>
+              <div class="title-column3">
+                <a>All Fields Required</a>
+              </div>
+            </div>
+            <div class="underline form"></div>
+            <div class="form-callsign">
+              <p class="form-label">> CALLSIGN</p>
+               <div class="form-field">
+                <input type="text" classname="empty-field" placeholder="e.g. Vortex_07" id="username" name="username" oninput="((event) => check_usermail(event, 'username'))(event)"/>
+                <img class="truemark" src="/assets/images/icon-tick-20.svg" alt="Show password" >
+              </div>  
+                <p class="form-fineprint req-callsign">3-20 characters: letters, number, _ or -</p>
+              <p class="form-fineprint username error">
+                <img src="/assets/images/icon-alert.svg"></img>
+                <a>Use at least 3 characters</a>
+              </p>
+
+            </div>
+            <div class="form-email">
+              <p class="form-label">> EMAIL</p>
+              <div class="form-field">
+                <input type="text" classname="empty-field" classname="empty-field" placeholder="you@example.com" id="email" name="email"/>
+                <img class="truemark" src="/assets/images/icon-tick-20.svg" alt="Show password">
+              </div>
+              <p class="form-fineprint mail error">
+                <img src="/assets/images/icon-alert.svg"></img>
+                <a>Enter a valid email, like you@example.com</a>
+              </p>
+            </div>
+
+            <div class="form-password">
+              <p class="form-password form-label">> PASSWORD</p>
+              <div class="form-passwordfield">
+                <input type="password" classname="empty-field" name="password" class="form-password" id="password" oninput="((event) => checkPasswordStrength(event))(event)">
+                <button type="button" class="toggle-password empty-field on" onclick="((event) => showPassword(event, 'password'))(event)" >
+                  <img src="/assets/images/icon-eye.svg" alt="Show password">
+                </button>
+                <button type="button" class="toggle-password empty-field off hidden" onclick="((event) => showPassword(event, 'password'))(event)" >
+                  <img src="/assets/images/icon-eye-off.svg" alt="Show password">
+                </button>
+                  <img class="truemark password" src="/assets/images/icon-tick-20.svg" alt="Show password">
+              </div>
+
+              
+              <div class="check-pw-security">
+                <div class="pwsec-bar one"></div>
+                <div class="pwsec-bar two"></div>
+                <div class="pwsec-bar three"></div>
+                <div class="pwsec-bar four"></div>
+              </div>
+
+              <p class="form-fineprint password">
+                <a>At least 8 characters</a>
+                <a class="form-fineprint fair">FAIR</a>
+                <a class="form-fineprint good">STRONG</a>
+                <a class="form-fineprint strong">STRONG</a>
+              </p>
+              <p class="form-fineprint password-one error">
+                
+              <img src="/assets/images/icon-alert.svg"></img> <a>Use at least 8 characters.</a>
+              <a>WEAK</a>
+              </p>
+            </div>
+            <div class="form-passwordsecond">
+              <p class="form-passwordsecond form-label">> CONFIRM PASSWORD</p>
+              <div class="form-passwordfield">
+                <input type="password" name="rep-password" class="form-password empty-field" id="rep-password" oninput="((event) => repPassword(event))(event)"/>
+                <button type="button" class="toggle-password toggle-rep-password empty-field on" onclick="((event) => showPassword(event, 'rep-password'))(event)" >
+                  <img src="/assets/images/icon-eye.svg" alt="Show password">
+                </button>
+                <button type="button" class="toggle-password toggle-rep-password sec empty-field off hidden" onclick="((event) => showPassword(event, 'rep-password'))(event)" >
+                  <img src="/assets/images/icon-eye-off.svg" alt="Show password">
+                </button>
+                <img class="truemark password-sec" src="/assets/images/icon-tick-20.svg" alt="Show password">
+
+              </div>
+            </div>
+            <p class="form-fineprint password-sec error">
+              <img src="/assets/images/icon-alert.svg"></img> <a>Password don't match.</a>
+            </p>
+            <div class="form-terms">
+              <input type="checkbox" name="checkbox" class="empty-field checkbox"/><span></span>
+              <div class="form-termsdesc">
+                <span>I accept the&nbsp;<a href="#">Terms</a>&nbsp;and&nbsp;<a href="#">Privacy Policy</a>.</span>
+              </div>
+            </div>
+            <p class="form-fineprint require-terms error">
+              <img src="/assets/images/icon-alert.svg"></img> <a>Accept the terms to continue </a>
+            </p>
+            <input type="submit" class="empty-field submitbtn" value="INITIALIZE ACCOUNT"/>
+            <div class="already-op">
+              <p >Already an operator? <a href="#">Log in</a></p>
+            </div>
+
+
+
+          </form>
+          <div class="handshake-complete">
+            <div class="container-complete">
+              <img src="/assets/images/icon-hex-check.svg"/>
+              <p class="title-complete"><a class="neongreen">//</a> Handshake complete</p>
+              <p class="desc-complete">Operator <a class="username neongreen"></a> provisioned. Your account is ready.</p>
+              <input type="submit" value="CONTINUE TO LOG IN"></button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">newst4rt</a>.
+  </footer>
+</body>
+
+<footer>
+    <script src="src/main.js" defer></script>
+</footer>
+</html>
